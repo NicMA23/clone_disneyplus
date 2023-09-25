@@ -1,5 +1,66 @@
-$bgColor: #ccc;
+@use 'hero';
+@use 'vars';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: $bgColor;
+    background-color: vars.$bgColor;
+    font-family: Avenir, sans-serif;
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: calc($fontSize + 10px);
+    color: vars.$mainTextColor;
+}
+
+@mixin title($fontSize: 28px) {
+    @include text($fontSize);
+    color: vars.$secTextColor;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title(40px);
+}
+
+.title--small {
+    @include title;
+}
+
+.text__link {
+    @include text(18px);
+    color: vars.$secTextColor;
+    text-decoration: underline;
 }
