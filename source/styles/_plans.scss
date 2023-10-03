@@ -1,0 +1,66 @@
+@use 'vars';
+
+@mixin btn($bgColor: vars.$btnColor) {
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    color: vars.$secTextColor;
+    background-color: vars.$btnColor;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 2vw;
+    margin-bottom: 8px;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($color: $bgColor, $amount: 10);
+    }
+}
+
+.plans {
+    padding: 5.6vw;
+
+    p {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin-top: 50px;
+
+        &__item {
+            padding: 60px 44px 44px;
+            text-align: center;
+            max-width: 380px;
+            width: 100%;
+
+            &:nth-child(2) {
+                background-image: url(../imgs/fundo_combo_plus.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            img {
+                height: 83px;
+
+            }
+
+            strong {
+                margin-top: 24px;
+                display: block;
+            }
+
+            button {
+                @include btn;
+            }
+        }
+    }
+}
